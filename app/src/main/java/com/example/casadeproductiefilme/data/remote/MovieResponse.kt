@@ -12,9 +12,9 @@ data class MovieResponse(
 )
 
 fun MovieResponse.toMovieEntity() = MovieEntity(
-    movieId = id,
+    movieID = id,
     name = name,
-    movie_type = movie_type,
+    movieType = movie_type,
     category = category,
-    release_year = release_year
+    releaseYear = release_year
 )
