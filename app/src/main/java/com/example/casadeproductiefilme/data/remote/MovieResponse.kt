@@ -16,5 +16,6 @@ fun MovieResponse.toMovieEntity() = MovieEntity(
     name = name,
     movieType = movie_type,
     category = category,
-    releaseYear = release_year
+    releaseYear = release_year,
+    imageUrl = imageUrl
 )
