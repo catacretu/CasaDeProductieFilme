@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="editTextStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:background">@color/mild_blue_transparent</item>
+        <item name="android:fontFamily">"@font/caviar_dreams"</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColorHint">@color/deep_blue</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:drawablePadding">7dp</item>
+    </style>
+
+    <style name="loginButtonStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:backgroundTint">@color/background_tint_selector</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:fontFamily">"@font/caviar_dreams"</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+</resources>

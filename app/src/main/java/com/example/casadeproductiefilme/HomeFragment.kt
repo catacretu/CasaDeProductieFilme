@@ -10,20 +10,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.casadeproductiefilme.adapter.MovieAdapter
 import com.example.casadeproductiefilme.databinding.FragmentHomeBinding
-import com.example.casadeproductiefilme.viewmodel.MovieViewModel
+import com.example.casadeproductiefilme.presenters.MovieInterface
+import com.example.casadeproductiefilme.presenters.MoviePresenter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), MovieInterface.View {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var movieAdapter: MovieAdapter
 
+    //    @Inject
+//    lateinit var movieViewModel: MovieViewModel
     @Inject
-    lateinit var movieViewModel: MovieViewModel
-//    @Inject
-//    lateinit var presenter: MoviePresenter
+    lateinit var presenter: MoviePresenter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,33 +37,32 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
-//        presenter.mainView = this
-//        presenter.inflateMovies()
-        initRecyclerView(view)
+        presenter.mainView = this
+        presenter.inflateMovies()
+//        initRecyclerView(view)
         return view
     }
 
 
-//    override fun initRecyclerView() {
-//
-//        val recyclerView = binding.root.findViewById<RecyclerView>(R.id.recycler_view)
-//        val dataList = presenter.getMovies()
-//        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-//        movieAdapter = MovieAdapter(dataList, binding.root.context) // it = List<MovieEntity>
-//        Log.d("HERE", "Here")
-//        recyclerView?.adapter = movieAdapter
-//
-//    }
+    override fun initRecyclerView() {
 
-    private fun initRecyclerView(view: View) {
+        val recyclerView = binding.root.findViewById<RecyclerView>(R.id.recycler_view)
+        val dataList = presenter.getMovies()
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        movieAdapter = MovieAdapter(dataList, binding.root.context) // it = List<MovieEntity>
+        recyclerView?.adapter = movieAdapter
 
-        movieViewModel.getMovieObserver().observe(viewLifecycleOwner) {
-            val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-            val dataList = it
-            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-            movieAdapter = MovieAdapter(it, binding.root.context) // it = List<MovieEntity>
-            recyclerView?.adapter = movieAdapter
-        }
     }
+
+//    private fun initRecyclerView(view: View) {
+//
+//        movieViewModel.getMovieObserver().observe(viewLifecycleOwner) {
+//            val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+//            val dataList = it
+//            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+//            movieAdapter = MovieAdapter(it, binding.root.context) // it = List<MovieEntity>
+//            recyclerView?.adapter = movieAdapter
+//        }
+//    }
 }
 

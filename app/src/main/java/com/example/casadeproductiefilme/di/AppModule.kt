@@ -7,6 +7,7 @@ import com.example.casadeproductiefilme.data.remote.MovieAPI
 import com.example.casadeproductiefilme.data.remote.RemoteDataSource
 import com.example.casadeproductiefilme.data.repository.MovieRepository
 import com.example.casadeproductiefilme.data.repository.MovieRepositoryImpl
+import com.example.casadeproductiefilme.presenters.MoviePresenter
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -47,9 +48,9 @@ class AppModule(private val context: Context) {
         return MovieRepositoryImpl(movieAPI, movieDAO)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideMoviePresenter(movieRepository: MovieRepository): MoviePresenter {
-//        return MoviePresenter(movieRepository)
-//    }
+    @Singleton
+    @Provides
+    fun provideMoviePresenter(movieRepository: MovieRepository): MoviePresenter {
+        return MoviePresenter(movieRepository)
+    }
 }

@@ -17,7 +17,6 @@ class MoviePresenter @Inject constructor(
 
     override fun loadMovieData() {
         movieList = repository.getMovies().blockingGet()
-//        movieList.a(list)
     }
 
     override fun getMovies(): List<MovieEntity> {
