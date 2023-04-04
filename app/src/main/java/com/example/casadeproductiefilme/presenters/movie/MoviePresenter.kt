@@ -1,11 +1,11 @@
-package com.example.casadeproductiefilme.presenters
+package com.example.casadeproductiefilme.presenters.movie
 
 import com.example.casadeproductiefilme.data.local.entity.MovieEntity
 import com.example.casadeproductiefilme.data.repository.MovieRepository
 import javax.inject.Inject
 
 class MoviePresenter @Inject constructor(
-    private val repository: MovieRepository
+    private val movieRepository: MovieRepository
 ) : MovieInterface.Presenter {
 
     private var movieList: List<MovieEntity>? = null
@@ -15,8 +15,8 @@ class MoviePresenter @Inject constructor(
         loadMovieData()
     }
 
-    override fun loadMovieData() {
-        movieList = repository.getMovies().blockingGet()
+    private fun loadMovieData() {
+        movieList = movieRepository.getMovies().blockingGet()
     }
 
     override fun getMovies(): List<MovieEntity> {

@@ -1,6 +1,6 @@
 package com.example.casadeproductiefilme.di
 
-import com.example.casadeproductiefilme.MainActivity
+import com.example.casadeproductiefilme.views.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

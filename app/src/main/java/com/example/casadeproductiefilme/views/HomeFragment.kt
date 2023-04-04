@@ -1,4 +1,4 @@
-package com.example.casadeproductiefilme
+package com.example.casadeproductiefilme.views
 
 import android.content.Context
 import android.os.Bundle
@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.casadeproductiefilme.R
 import com.example.casadeproductiefilme.adapter.MovieAdapter
 import com.example.casadeproductiefilme.databinding.FragmentHomeBinding
-import com.example.casadeproductiefilme.presenters.MovieInterface
-import com.example.casadeproductiefilme.presenters.MoviePresenter
+import com.example.casadeproductiefilme.presenters.movie.MovieInterface
+import com.example.casadeproductiefilme.presenters.movie.MoviePresenter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -53,16 +54,5 @@ class HomeFragment : Fragment(), MovieInterface.View {
         recyclerView?.adapter = movieAdapter
 
     }
-
-//    private fun initRecyclerView(view: View) {
-//
-//        movieViewModel.getMovieObserver().observe(viewLifecycleOwner) {
-//            val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-//            val dataList = it
-//            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-//            movieAdapter = MovieAdapter(it, binding.root.context) // it = List<MovieEntity>
-//            recyclerView?.adapter = movieAdapter
-//        }
-//    }
 }
 

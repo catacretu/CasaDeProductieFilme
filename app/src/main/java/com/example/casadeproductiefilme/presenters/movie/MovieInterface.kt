@@ -1,4 +1,4 @@
-package com.example.casadeproductiefilme.presenters
+package com.example.casadeproductiefilme.presenters.movie
 
 import com.example.casadeproductiefilme.data.local.entity.MovieEntity
 
@@ -9,7 +9,6 @@ interface MovieInterface {
     }
 
     interface Presenter {
-        fun loadMovieData()
         fun getMovies(): List<MovieEntity>
         fun inflateMovies()
     }

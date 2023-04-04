@@ -1,7 +1,8 @@
-package com.example.casadeproductiefilme
+package com.example.casadeproductiefilme.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.casadeproductiefilme.R
 import dagger.android.AndroidInjection
 
 class MainActivity : AppCompatActivity() {
