@@ -26,7 +26,11 @@ class UserPresenter @Inject constructor(
         userRepository.insertUser(user)
     }
 
-    override fun getAllUsers() {
-        userRepository.getAllUsers()
+    override fun getAllUsers(): List<String> {
+        return userRepository.getAllUsers()
+    }
+
+    override fun deleteUser(username: String) {
+        userRepository.deleteUser(username)
     }
 }

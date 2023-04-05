@@ -11,6 +11,7 @@ interface UserInterface {
     interface Presenter {
         fun checkCredentials(username: String, password: String): String?
         fun saveUser(user: UserEntity)
-        fun getAllUsers()
+        fun getAllUsers(): List<String>
+        fun deleteUser(username: String)
     }
 }

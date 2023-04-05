@@ -12,9 +12,9 @@ interface UserDAO {
     @Query("SELECT * FROM user_table WHERE username = :username")
     fun getUser(username: String): UserEntity
 
-    @Query("SELECT * From user_table")
-    fun getAllUsers(): List<UserEntity>
+    @Query("SELECT username From user_table")
+    fun getAllUsers(): List<String>
 
-    @Delete
-    fun delete(user: UserEntity)
+    @Query("DELETE from user_table WHERE username =:username")
+    fun delete(username: String)
 }

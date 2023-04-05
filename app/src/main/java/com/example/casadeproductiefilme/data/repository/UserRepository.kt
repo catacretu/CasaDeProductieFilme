@@ -16,11 +16,11 @@ class UserRepository @Inject constructor(
         return userDAO.getUser(username)
     }
 
-    fun getAllUsers(): List<UserEntity> {
+    fun getAllUsers(): List<String> {
         return userDAO.getAllUsers()
     }
 
-    fun deleteUser(user: UserEntity) {
-        userDAO.delete(user)
+    fun deleteUser(username: String) {
+        userDAO.delete(username)
     }
 }

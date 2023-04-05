@@ -5,18 +5,18 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/register_text"
+        android:id="@+id/add_user_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/caviar_dreams_bold"
-        android:text="Register"
+        android:text="Add new user"
         android:textColor="@color/mild_blue"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <EditText
         android:id="@+id/username_field"
@@ -28,7 +28,7 @@
         android:drawableStart="@drawable/username_icon"
         android:hint="Username"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_text" />
+        app:layout_constraintTop_toBottomOf="@id/add_user_text" />
 
     <EditText
         android:id="@+id/password_field"
@@ -39,6 +39,7 @@
         android:background="@drawable/rounded_edit_text"
         android:drawableStart="@drawable/password_icon"
         android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/username_field" />
 
@@ -51,6 +52,39 @@
         android:text="Register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_field" />
+
+    <TextView
+        android:id="@+id/delete_user_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/caviar_dreams_bold"
+        android:text="Delete an user"
+        android:textColor="@color/mild_blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_button" />
+
+    <Spinner
+        android:id="@+id/user_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delete_user_text" />
+
+    <Button
+        android:id="@+id/delete_button"
+        style="@style/loginButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_list" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
