@@ -24,6 +24,6 @@ class MoviePresenter @Inject constructor(
     }
 
     override fun inflateMovies() {
-        mainView.initRecyclerView()
+        mainView.initRecyclerViewMovies()
     }
 }

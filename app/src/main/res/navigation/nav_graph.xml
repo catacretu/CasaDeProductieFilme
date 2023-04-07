@@ -6,15 +6,22 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.casadeproductiefilme.presenters.LoginFragment"
+        android:name="com.example.casadeproductiefilme.views.LoginFragment"
         android:label="LoginFragment">
         <action
             android:id="@+id/go_from_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/go_from_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.casadeproductiefilme.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.example.casadeproductiefilme.views.HomeFragment"
+        android:label="HomeFragment"></fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.casadeproductiefilme.views.AdminFragment"
+        android:label="AdminFragment" />
 </navigation>

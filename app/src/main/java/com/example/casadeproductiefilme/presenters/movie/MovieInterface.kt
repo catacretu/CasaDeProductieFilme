@@ -5,7 +5,8 @@ import com.example.casadeproductiefilme.data.local.entity.MovieEntity
 interface MovieInterface {
 
     interface View {
-        fun initRecyclerView()
+        fun initRecyclerViewFilters()
+        fun initRecyclerViewMovies()
     }
 
     interface Presenter {

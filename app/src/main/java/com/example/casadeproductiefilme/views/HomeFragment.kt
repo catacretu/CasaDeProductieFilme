@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.casadeproductiefilme.R
+import com.example.casadeproductiefilme.adapter.FilterAdapter
 import com.example.casadeproductiefilme.adapter.MovieAdapter
 import com.example.casadeproductiefilme.databinding.FragmentHomeBinding
 import com.example.casadeproductiefilme.presenters.movie.MovieInterface
@@ -44,14 +45,22 @@ class HomeFragment : Fragment(), MovieInterface.View {
         return view
     }
 
+    override fun initRecyclerViewFilters() {
+        val recyclerViewFilter = binding.root.findViewById<RecyclerView>(R.id.recycler_view_filter)
+        val filterList = listOf("artistic", "serial")
+        recyclerViewFilter.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewFilter.adapter = FilterAdapter(filterList)
+    }
 
-    override fun initRecyclerView() {
 
-        val recyclerView = binding.root.findViewById<RecyclerView>(R.id.recycler_view)
+    override fun initRecyclerViewMovies() {
+
+        val recyclerViewMovie = binding.root.findViewById<RecyclerView>(R.id.recycler_view_movie)
         val dataList = presenter.getMovies()
-        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        recyclerViewMovie?.layoutManager = LinearLayoutManager(context)
         movieAdapter = MovieAdapter(dataList, binding.root.context) // it = List<MovieEntity>
-        recyclerView?.adapter = movieAdapter
+        recyclerViewMovie?.adapter = movieAdapter
 
     }
 }

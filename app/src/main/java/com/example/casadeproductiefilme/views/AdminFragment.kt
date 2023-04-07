@@ -84,13 +84,12 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
         })
 
         val usersList = presenter.getAllUsers()
-
         val dataAdapter = ArrayAdapter(
             requireContext(),
             R.layout.simple_spinner_item,
             usersList
         ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
             binding.userList.adapter = adapter
         }
 
@@ -111,7 +110,8 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 ).show()
         }
 
-        binding.userList.onItemSelectedListener = this
+        binding.userList.onItemSelectedListener =
+            this // set as listener the methods onItemSelected and onNothingSelected
 
         binding.deleteButton.setOnClickListener {
             val user = binding.userList.selectedItem.toString()
